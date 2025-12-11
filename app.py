@@ -3,8 +3,11 @@ import numpy as np
 import xgboost as xgb
 
 # Load JSON model safely
-model = xgb.XGBRegressor()
-model.load_model("model.json")
+import xgboost as xgb
+
+booster = xgb.Booster()
+booster.load_model("model.json")
+
 
 st.set_page_config(page_title="Calorie Burn Prediction", page_icon="🔥")
 
@@ -26,7 +29,9 @@ gender_val = 0 if gender == "Male" else 1
 # ---- Prediction Button ----
 if st.button("Predict Calories Burned"):
     input_data = np.array([[gender_val, age, height, weight, duration, heart_rate, body_temp]])
-    prediction = model.predict(input_data)[0]
+    dtest = xgb.DMatrix(input_data)
+    prediction = booster.predict(dtest)[0]
+
 
     # CARD UI
     st.markdown(
