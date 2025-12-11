@@ -29,8 +29,14 @@ gender_val = 0 if gender == "Male" else 1
 # ---- Prediction Button ----
 if st.button("Predict Calories Burned"):
     input_data = np.array([[gender_val, age, height, weight, duration, heart_rate, body_temp]])
-    dtest = xgb.DMatrix(input_data)
+
+    dtest = xgb.DMatrix(
+        input_data,
+        feature_names=["Gender", "Age", "Height", "Weight", "Duration", "Heart_Rate", "Body_Temp"]
+    )
+
     prediction = booster.predict(dtest)[0]
+
 
 
     # CARD UI
