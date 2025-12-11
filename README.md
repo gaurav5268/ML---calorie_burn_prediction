@@ -1,6 +1,10 @@
 # Calorie Burn Prediction
 
 This project predicts the number of calories burned during physical exercise using a machine learning model built with XGBoost. The app provides an intuitive Streamlit-based UI, and is fully containerized using Docker for easy deployment.
+ 
+Project is hosted on - https://calorieburnprediction-2kufpgbs5apq3meymomm9y.streamlit.app/
+Docker repo - https://hub.docker.com/r/gaurav5268/calorie-app
+Github repo - https://github.com/gaurav5268/ML---calorie_burn_prediction
 
 ## Features
 🔹 Machine Learning
